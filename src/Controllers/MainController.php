@@ -155,6 +155,7 @@ class MainController{
             }
         }
 
+        // Charge la vue "login.php" du dossier "views"
         require VIEWS_DIR . '/login.php';
     }
 
@@ -172,7 +173,22 @@ class MainController{
         // Suppression de la variable "user" stockée en session (déconnexion)
         unset($_SESSION['user']);
 
+        // Charge la vue "logout.php" du dossier "views"
         require VIEWS_DIR . '/logout.php';
+    }
+
+    /**
+     * Contrôleur de la page de profil
+     */
+    public  function profil(): void
+    {
+        // Redirige l'utilisateur sur la page de connexion si déconnecté
+        if(!isConnected()) {
+            header('Location: ' . PUBLIC_PATH . '/connexion/');
+            die();
+        }
+        // Charge la vue "profil.php" du dossier "views"
+        require VIEWS_DIR . '/profil.php';
     }
 
     /**
