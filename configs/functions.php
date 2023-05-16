@@ -55,3 +55,11 @@ function request_path()
     }
     return $path;
 }
+
+// Fonction qui instancie une connexion à la BDD et la retourne (nécessaire pour les classes manager DAO de notre site)
+function connectedDb(): PDO
+{
+    $db = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8', DB_USER, DB_PASSWORD);
+
+    return $db;
+}
