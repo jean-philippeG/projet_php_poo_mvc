@@ -147,7 +147,20 @@ class MainController{
             }
         }
 
-        require VIEWS_DIR . '\login.php';
+        require VIEWS_DIR . '/login.php';
+    }
+
+    /**
+     * Contrôleur de la page de déconnexion
+     */
+    public  function logout(): void
+    {
+        // TODO : Rediriger sur la page de connexion si l'utillisateur n'est pas connecté
+
+        // Suppression de la variable "user" stockée en session (déconnexion)
+        unset($_SESSION['user']);
+        
+        require VIEWS_DIR . '/logout.php';
     }
 
     /**
@@ -161,4 +174,5 @@ class MainController{
         // Charge la vue "404.php" du dossier "views"
         require VIEWS_DIR . '/404.php';
     }
+
 }

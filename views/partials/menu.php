@@ -30,6 +30,11 @@
                 <li class="nav-item">
                     <a class="nav-link<?= (ROUTE == '/creer-un-compte/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/creer-un-compte/">Inscription</a>
                 </li>
+
+                <!-- Lien vers la page de deconnexion -->
+                <li class="nav-item">
+                    <a class="nav-link<?= (ROUTE == '/deconnexion/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/deconnexion/">Déconnexion</a>
+                </li>
             </ul>
         </div>
     </div>
