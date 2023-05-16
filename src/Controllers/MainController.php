@@ -26,7 +26,11 @@ class MainController{
      */
     public function register(): void
     {
-        // TODO: Rédiriger sur l'accueil si déjà connecté
+        // Redirige l'utilisateur sur la page d'accueil si déjà connecté
+        if(isConnected()){
+            header('Location: '.PUBLIC_PATH.'/');
+            die();
+        }
 
         // Traitement du formulaire d'inscription
         // Appel des variables
@@ -105,7 +109,11 @@ class MainController{
      */
     public  function login(): void
     {
-        // TODO : rediriger sur l'accueil si on est déjà connecté
+        // Redirige l'utilisateur sur la page d'accueil si déjà connecté
+        if(isConnected()){
+            header('Location: '.PUBLIC_PATH.'/');
+            die();
+        }
 
         // Appel des variables
         if(
@@ -155,11 +163,15 @@ class MainController{
      */
     public  function logout(): void
     {
-        // TODO : Rediriger sur la page de connexion si l'utillisateur n'est pas connecté
+        // Redirige l'utilisateur sur la page de connexion si déjà déconnecté
+        if(!isConnected()){
+            header('Location: '.PUBLIC_PATH.'/connexion/');
+            die();
+        }
 
         // Suppression de la variable "user" stockée en session (déconnexion)
         unset($_SESSION['user']);
-        
+
         require VIEWS_DIR . '/logout.php';
     }
 
