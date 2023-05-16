@@ -101,6 +101,56 @@ class MainController{
     }
 
     /**
+     * Contrôleur de la page de connexion
+     */
+    public  function login(): void
+    {
+        // TODO : rediriger sur l'accueil si on est déjà connecté
+
+        // Appel des variables
+        if(
+            isset($_POST['email']) &&
+            isset($_POST['password'])
+        ) {
+
+            // Vérifs
+            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $errors[] = 'Adresse email invalide';
+            }
+
+            if (!preg_match('/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[ !"#\$%&\'()*+,\-.\/:;<=>?@[\\\\\]\^_`{\|}~]).{8,4096}$/u', $_POST['password'])) {
+                $errors[] = 'Mot de passe invalide';
+            }
+
+            // Si pas d'erreurs
+            if(!isset($errors)){
+
+                // Instanciation du manager des utilisateurs
+                $userManager = new UserManager();
+
+                // Récupération du compte correspondant à l'email envoyé dans le formulaire
+                $userToConnect = $userManager->findOneBy('email', $_POST['email']);
+
+                // Si le compte n'existe pas
+                if(empty($userToConnect)){
+                    $errors[] = 'Le compte n\'existe pas.';
+                } else {
+                    if(!password_verify($_POST['password'], $userToConnect->getPassword())){
+                        $errors[] = 'Le mot de passe n\'est pas le bon mot de passe.';
+                    } else {
+                        // Stockage de l'utilisateur à connecter en session
+                        $_SESSION['user'] = $userToConnect;
+
+                        $success = 'Vous êtes bien connecté !';
+                    }
+                }
+            }
+        }
+
+        require VIEWS_DIR . '\login.php';
+    }
+
+    /**
      * Contrôleur de la page 404
      */
     public function page404(): void

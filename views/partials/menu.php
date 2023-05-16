@@ -20,6 +20,11 @@
                     <a class="nav-link<?= (ROUTE == '/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/">Accueil</a>
                 </li>
 
+                <!-- Lien vers la page de connexion -->
+                <li class="nav-item">
+                    <a class="nav-link<?= (ROUTE == '/connexion/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/connexion/">Connexion</a>
+                </li>
+
                 <!-- TODO: Penser à masquer ce bouton si l'utilisateur est déjà connecté -->
                 <!-- Lien vers la page d'inscription -->
                 <li class="nav-item">
