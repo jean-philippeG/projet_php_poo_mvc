@@ -20,6 +20,11 @@
                     <a class="nav-link<?= (ROUTE == '/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/">Accueil</a>
                 </li>
 
+                <!-- Lien vers la page de la liste des fruits -->
+                <li class="nav-item">
+                    <a class="nav-link<?= (ROUTE == '/fruits/liste/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/fruits/liste/">Liste des fruits</a>
+                </li>
+
                 <?php
                 // Si l'utilisateur est connecté
                 if(isConnected()){
@@ -33,7 +38,7 @@
                     <li class="nav-item">
                         <a class="nav-link<?= (ROUTE == '/fruits/ajouter-un-fruit/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/fruits/ajouter-un-fruit/">Ajouter un fruit</a>
                     </li>
-                    
+
                     <!-- Lien vers la page de deconnexion -->
                     <li class="nav-item">
                         <a class="nav-link<?= (ROUTE == '/deconnexion/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/deconnexion/">Déconnexion</a>
