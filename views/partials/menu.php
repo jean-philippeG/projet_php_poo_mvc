@@ -29,6 +29,11 @@
                         <a class="nav-link<?= (ROUTE == '/mon-profil/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/mon-profil/">Mon profil</a>
                     </li>
 
+                    <!-- Lien vers la page d'ajout d'un fruit -->
+                    <li class="nav-item">
+                        <a class="nav-link<?= (ROUTE == '/fruits/ajouter-un-fruit/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/fruits/ajouter-un-fruit/">Ajouter un fruit</a>
+                    </li>
+                    
                     <!-- Lien vers la page de deconnexion -->
                     <li class="nav-item">
                         <a class="nav-link<?= (ROUTE == '/deconnexion/') ? ' active' : '' ?>" href="<?= PUBLIC_PATH ?>/deconnexion/">Déconnexion</a>

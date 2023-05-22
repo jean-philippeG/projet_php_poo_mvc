@@ -35,6 +35,11 @@ switch (ROUTE){
         $mainController->profil();
         break;
 
+    // Route de la page d'ajout d'un fruit
+    case '/fruits/ajouter-un-fruit/';
+        $mainController->fruitAdd();
+        break;
+
     // Si aucune des URLs précédentes ne match, c'est cette page qui sera appelée par défaut
     default:
         $mainController->page404();

@@ -34,7 +34,7 @@ class UserManager{
      */
     public function __construct()
     {
-        $this->db = connectedDb();
+        $this->db = connectDb();
     }
 
     /**
@@ -84,7 +84,7 @@ class UserManager{
 
             $convertedUser = new User();
 
-            // Hydratation de "lobjet à partir des données de l'array
+            // Hydratation de l'objet à partir des données de l'array
             $convertedUser
                 ->setId( $foundUser['id'] )
                 ->setEmail( $foundUser['email'] )
