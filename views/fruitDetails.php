@@ -29,6 +29,22 @@
             <a href="<?= PUBLIC_PATH ?>/fruits/liste/">Retour à la liste des fruits</a>
         </div>
 
+        <?php
+
+        // Affichage des liens de suppression et modification du fruit seulement si le visiteur est connecté
+        if(isConnected()){
+
+            ?>
+            <div class="col-12 my-4 text-center">
+
+                <a class="text-success me-3" href="<?= PUBLIC_PATH ?>/fruits/modifier/?id=<?= htmlspecialchars( $fruit->getId() ) ?>"><i class="fas fa-edit me-2"></i>Modifier le fruit</a>
+                <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce fruit ?');" class="text-danger" href="<?= PUBLIC_PATH ?>/fruits/supprimer/?id=<?= htmlspecialchars( $fruit->getId() ) ?>"><i class="fas fa-times me-2"></i>Supprimer le fruit</a>
+
+            </div>
+            <?php
+        }
+        ?>
+
     </div>
 
     <!-- Affichage des infos du fruit -->
